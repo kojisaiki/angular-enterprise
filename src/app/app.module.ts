@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SubsystemModule } from './subsystem/subsystem.module';
+import { CoreModule } from './core/parts.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { SubsystemModule } from './subsystem/subsystem.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     SubsystemModule,
   ],
   providers: [],
