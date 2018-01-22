@@ -5,13 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SubsystemModule } from './subsystem/subsystem.module';
-import { SampleComponent } from './sample/sample.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SampleComponent
   ],
   imports: [
     BrowserModule,
