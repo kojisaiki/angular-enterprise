@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { SubsystemModule } from './subsystem/subsystem.module';
-import { CoreModule } from './core/parts.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
