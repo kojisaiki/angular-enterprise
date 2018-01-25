@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-entity-sample',
@@ -7,9 +9,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntitySampleComponent implements OnInit {
 
-  constructor() { }
+  // #reion インタフェース
+
+  // #endregion
+
+  // #region コンストラクタ・ライフサイクル
+
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) {
+    this.subscriptions.push(
+      activatedRoute.paramMap
+      .subscribe((param) => {
+        this.id = param.get('id');
+      })
+    );
+  }
 
   ngOnInit() {
   }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
+  }
+
+  // #endregion
+
+  // #region ビューバインド
+
+  getId() {
+    return this.id;
+  }
+
+  // #endregion
+
+  // #region イベント
+
+  // #endregion
+
+  // #region プライベート
+
+  private id: string;
+  private subscriptions: Subscription[] = [];
+
+  // #endregion
 
 }
