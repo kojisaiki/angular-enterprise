@@ -8,28 +8,18 @@ import { Id0001UnitService } from './id0001-unit.service';
 export const ID0001_ROUTES: Routes = [
   {
     path: '',
-    component: SearchSampleComponent,
+    component: SearchSampleComponent
   },
   {
     path: ':id',
-    component: EntitySampleComponent,
+    component: EntitySampleComponent
   }
-]
+];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-  ],
-  declarations: [
-    SearchSampleComponent,
-    EntitySampleComponent,
-  ],
-  exports: [
-  ],
-  providers: [
-    Id0001UnitService,
-  ]
+  imports: [CommonModule, RouterModule],
+  declarations: [SearchSampleComponent, EntitySampleComponent],
+  exports: [],
+  providers: [Id0001UnitService]
 })
-export class Id0001UnitModule {
-}
+export class Id0001UnitModule {}

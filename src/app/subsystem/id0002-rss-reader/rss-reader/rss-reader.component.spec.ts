@@ -8,9 +8,8 @@ describe('RssReaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RssReaderComponent ]
-    })
-    .compileComponents();
+      declarations: [RssReaderComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

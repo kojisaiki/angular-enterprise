@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  HttpClient,
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
 
 @Component({
@@ -10,21 +8,16 @@ import { delay } from 'rxjs/operators';
   styleUrls: ['./rss-reader.component.scss']
 })
 export class RssReaderComponent implements OnInit {
-
   result: any = 'no data';
 
-  constructor(
-    private http: HttpClient,
-  ) { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.http.get('https://symfony.com/roadmap.json')
-    .pipe(
-      delay(1000),
-    )
-    .subscribe((data) => {
-      this.result = data;
-    });
+    this.http
+      .get('https://symfony.com/roadmap.json')
+      .pipe(delay(1000))
+      .subscribe(data => {
+        this.result = data;
+      });
   }
-
 }

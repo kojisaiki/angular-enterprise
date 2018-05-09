@@ -7,19 +7,15 @@ import { Id0001UnitService } from '../id0001-unit.service';
   styleUrls: ['./search-sample.component.scss']
 })
 export class SearchSampleComponent implements OnInit {
-
   // #reion インタフェース
 
   // #endregion
 
   // #region コンストラクタ・ライフサイクル
 
-  constructor(
-    private ownService: Id0001UnitService,
-  ) { }
+  constructor(private ownService: Id0001UnitService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   // #endregion
 
@@ -42,5 +38,4 @@ export class SearchSampleComponent implements OnInit {
   // #region プライベート
 
   // #endregion
-
 }

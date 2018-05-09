@@ -8,20 +8,17 @@ import { AppComponent } from './app.component';
 import { SubsystemModule } from './subsystem/subsystem.module';
 import { CoreModule } from './core/core.module';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
+
     CoreModule,
     SubsystemModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

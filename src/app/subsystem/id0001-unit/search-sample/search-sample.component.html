@@ -4,6 +4,7 @@
 <button (click)="search()">検索</button>
 <ul>
   <li *ngFor="let data of getList()">
-    {{data.id}} : {{data.name}} <a routerLink="{{data.id}}">detail</a>
+    {{data.id}} : {{data.name}}
+    <a routerLink="{{data.id}}">detail</a>
   </li>
 </ul>

@@ -3,10 +3,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class Id0001UnitService {
-
   // #reion インタフェース
 
-  constructor() { }
+  constructor() {}
 
   getList() {
     return this.currentList$.value;
@@ -37,5 +36,4 @@ export class Id0001UnitService {
   private currentList$: BehaviorSubject<any[]> = new BehaviorSubject([]);
 
   // #endregion
-
 }

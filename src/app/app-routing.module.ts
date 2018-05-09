@@ -6,11 +6,11 @@ const routes: Routes = [
   {
     path: '',
     children: SUBSYSTEM_ROUTES,
-  }
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

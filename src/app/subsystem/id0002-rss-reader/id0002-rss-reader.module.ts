@@ -6,14 +6,12 @@ import { RssReaderComponent } from './rss-reader/rss-reader.component';
 export const ID0002_ROUTES: Routes = [
   {
     path: '',
-    component: RssReaderComponent,
-  },
+    component: RssReaderComponent
+  }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [RssReaderComponent]
 })
-export class Id0002RssReaderModule { }
+export class Id0002RssReaderModule {}

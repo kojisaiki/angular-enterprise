@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -7,28 +7,22 @@ import { Subscription } from 'rxjs/Subscription';
   templateUrl: './entity-sample.component.html',
   styleUrls: ['./entity-sample.component.scss']
 })
-export class EntitySampleComponent implements OnInit {
-
+export class EntitySampleComponent implements OnInit, OnDestroy {
   // #reion インタフェース
 
   // #endregion
 
   // #region コンストラクタ・ライフサイクル
 
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.subscriptions.push(
-      activatedRoute.paramMap
-      .subscribe((param) => {
+      activatedRoute.paramMap.subscribe(param => {
         this.id = param.get('id');
       })
     );
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnDestroy() {
     this.subscriptions.forEach(sub => {
@@ -56,5 +50,4 @@ export class EntitySampleComponent implements OnInit {
   private subscriptions: Subscription[] = [];
 
   // #endregion
-
 }
