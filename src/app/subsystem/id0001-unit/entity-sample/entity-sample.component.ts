@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-entity-sample',
   templateUrl: './entity-sample.component.html',
-  styleUrls: ['./entity-sample.component.scss']
+  styleUrls: ['./entity-sample.component.scss'],
 })
 export class EntitySampleComponent implements OnInit, OnDestroy {
   // #reion インタフェース
@@ -18,11 +18,15 @@ export class EntitySampleComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       activatedRoute.paramMap.subscribe(param => {
         this.id = param.get('id');
-      })
+      }),
     );
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    console.log('I am EntitySampleComponent.');
+    console.log(this.router);
+    console.log(this.activatedRoute);
+  }
 
   ngOnDestroy() {
     this.subscriptions.forEach(sub => {
