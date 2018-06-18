@@ -10,9 +10,9 @@ describe('ContextStackService', () => {
     });
   });
 
-  it('stack and takeoff', inject(
+  it('one stack and takeoff', inject(
     [ContextStackService],
-    (service: ContextStackService) => {
+    (stacker: ContextStackService) => {
       const newpage = new PageContext();
       newpage.contextId = '/id0001/:id';
       newpage.data = {
@@ -22,11 +22,45 @@ describe('ContextStackService', () => {
         ],
       };
 
-      service.stack(newpage);
+      expect(stacker.getHeight()).toEqual(0);
+      stacker.stack(newpage);
+      expect(stacker.getHeight()).toEqual(1);
 
-      const getpage = service.takeOff('/id0001/:id');
+      const getpage = stacker.takeOff('/id0001/:id');
       expect(getpage).not.toBeNull();
       expect(getpage.contextId).toEqual('/id0001/:id');
+    },
+  ));
+
+  it('multi stack and takeoff on top', inject(
+    [ContextStackService],
+    (stacker: ContextStackService) => {
+      // TODO:
+      expect(stacker.getHeight()).toEqual(0);
+    },
+  ));
+
+  it('multi stack and takeoff on middle', inject(
+    [ContextStackService],
+    (stacker: ContextStackService) => {
+      // TODO:
+      expect(stacker.getHeight()).toEqual(0);
+    },
+  ));
+
+  it('context not found in empty stack', inject(
+    [ContextStackService],
+    (stacker: ContextStackService) => {
+      // TODO:
+      expect(stacker.getHeight()).toEqual(0);
+    },
+  ));
+
+  it('context not found in many stack', inject(
+    [ContextStackService],
+    (stacker: ContextStackService) => {
+      // TODO:
+      expect(stacker.getHeight()).toEqual(0);
     },
   ));
 });

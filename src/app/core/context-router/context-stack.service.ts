@@ -7,6 +7,8 @@ import { PageContext } from './page-context';
 export class ContextStackService {
   constructor() {}
 
+  private _stack: PageContext[] = [];
+
   // interfaces
 
   /**
@@ -15,7 +17,7 @@ export class ContextStackService {
    * @param context The page you will move to.
    */
   stack(context: PageContext): void {
-    // TODO:
+    this._stack.push(context);
   }
 
   /**
@@ -27,8 +29,10 @@ export class ContextStackService {
    * @param contextId Desired context id.
    */
   takeOff(contextId: string): PageContext {
-    // TODO:
+    return this._stack[0];
+  }
 
-    return new PageContext();
+  getHeight(): number {
+    return this._stack.length;
   }
 }
