@@ -1,4 +1,9 @@
 export class PageContext {
+  constructor(_contextId: string, _data: any) {
+    this.contextId = _contextId;
+    this.data = _data;
+  }
+
   /**
    * Identifier of PageContext.
    *

@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { PageContext } from './page-context';
+import { CoreModule } from '../core.module';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: CoreModule,
 })
 export class ContextStackService {
-  constructor() {}
+  constructor() {
+    console.log('construct ContextStackService');
+  }
 
   private _stack: PageContext[] = [];
 

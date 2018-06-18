@@ -13,14 +13,12 @@ describe('ContextStackService', () => {
   it('one stack and takeoff', inject(
     [ContextStackService],
     (stacker: ContextStackService) => {
-      const newpage = new PageContext();
-      newpage.contextId = '/id0001/:id';
-      newpage.data = {
+      const newpage = new PageContext('/id0001/:id', {
         list: [
           { name: 'username', value: 'taro' },
           { name: 'age', value: 123 },
         ],
-      };
+      });
 
       expect(stacker.getHeight()).toEqual(0);
       stacker.stack(newpage);
@@ -35,12 +33,8 @@ describe('ContextStackService', () => {
   it('multi stack and takeoff on top', inject(
     [ContextStackService],
     (stacker: ContextStackService) => {
-      const firstPage = new PageContext();
-      firstPage.contextId = '/id0001/';
-      firstPage.data = { type: 'list' };
-      const secondPage = new PageContext();
-      secondPage.contextId = '/id0001/:id';
-      secondPage.data = { type: 'card' };
+      const firstPage = new PageContext('/id0001/', { type: 'list' });
+      const secondPage = new PageContext('/id0001/:id', { type: 'card' });
 
       expect(stacker.getHeight()).toEqual(0);
       stacker.stack(firstPage);
@@ -57,15 +51,9 @@ describe('ContextStackService', () => {
   it('multi stack and takeoff on middle', inject(
     [ContextStackService],
     (stacker: ContextStackService) => {
-      const firstPage = new PageContext();
-      firstPage.contextId = '/id0001/';
-      firstPage.data = { type: 'list' };
-      const secondPage = new PageContext();
-      secondPage.contextId = '/id0001/:id';
-      secondPage.data = { type: 'card' };
-      const thirdPage = new PageContext();
-      thirdPage.contextId = '/id0002/:id';
-      thirdPage.data = { type: 'card' };
+      const firstPage = new PageContext('/id0001/', { type: 'list' });
+      const secondPage = new PageContext('/id0001/:id', { type: 'card' });
+      const thirdPage = new PageContext('/id0002/:id', { type: 'card' });
 
       expect(stacker.getHeight()).toEqual(0);
       stacker.stack(firstPage);
@@ -94,12 +82,8 @@ describe('ContextStackService', () => {
   it('context not found in many stack', inject(
     [ContextStackService],
     (stacker: ContextStackService) => {
-      const firstPage = new PageContext();
-      firstPage.contextId = '/id0001/';
-      firstPage.data = { type: 'list' };
-      const secondPage = new PageContext();
-      secondPage.contextId = '/id0001/:id';
-      secondPage.data = { type: 'card' };
+      const firstPage = new PageContext('/id0001/', { type: 'list' });
+      const secondPage = new PageContext('/id0001/:id', { type: 'card' });
 
       stacker.stack(firstPage);
       stacker.stack(secondPage);
