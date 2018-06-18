@@ -29,7 +29,18 @@ export class ContextStackService {
    * @param contextId Desired context id.
    */
   takeOff(contextId: string): PageContext {
-    return this._stack[0];
+    for (let i = this._stack.length - 1; i >= 0; i--) {
+      if (this._stack[i].contextId === contextId) {
+        const subject = this._stack[i];
+        this._stack = this._stack.slice(0, i + 1);
+        return subject;
+      }
+    }
+
+    // Context clear when accessed to a new page.
+    this._stack = [];
+
+    return null;
   }
 
   getHeight(): number {
