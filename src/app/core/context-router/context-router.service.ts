@@ -22,7 +22,6 @@ export class ContextRouterService {
 }
 
 function getPath(node: ActivatedRouteSnapshot) {
-  const c =
-    node.children.length > 0 ? `/${node.children.map(getPath).join(', ')}` : '';
+  const c = node.children.length > 0 ? `/${getPath(node.children[0])}` : '';
   return `${node.routeConfig ? node.routeConfig.path : ''}${c}`;
 }
