@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularEmitter } from 'kuker-emitters';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ContextRouterService } from './core/context-router/context-router.service';
 
 @Component({
   selector: 'app-root',
@@ -10,13 +11,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private contextRouter: ContextRouterService,
+  ) {
     AngularEmitter();
   }
 
   ngOnInit(): void {
-    console.log('I am AppComponent.');
-    console.log(this.router);
-    console.log(this.activatedRoute);
+    // console.log('I am AppComponent.');
+    // console.log(this.router);
+    // console.log(this.activatedRoute);
   }
 }

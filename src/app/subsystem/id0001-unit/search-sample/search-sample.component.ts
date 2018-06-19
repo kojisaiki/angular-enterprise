@@ -21,9 +21,9 @@ export class SearchSampleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log('I am SearchSampleComponent.');
-    console.log(this.router);
-    console.log(this.activatedRoute);
+    // console.log('I am SearchSampleComponent.');
+    // console.log(this.router);
+    // console.log(this.activatedRoute);
   }
 
   // #endregion

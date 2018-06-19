@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { PageContext } from './page-context';
 import { CoreModule } from '../core.module';
 
-@Injectable({
-  providedIn: CoreModule,
-})
+@Injectable()
 export class ContextStackService {
   constructor() {
     console.log('construct ContextStackService');

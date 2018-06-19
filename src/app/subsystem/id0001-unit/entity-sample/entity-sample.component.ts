@@ -23,9 +23,9 @@ export class EntitySampleComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('I am EntitySampleComponent.');
-    console.log(this.router);
-    console.log(this.activatedRoute);
+    // console.log('I am EntitySampleComponent.');
+    // console.log(this.router);
+    // console.log(this.activatedRoute);
   }
 
   ngOnDestroy() {
