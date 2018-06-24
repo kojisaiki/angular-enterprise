@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Id0001UnitService } from '../id0001-unit.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PageContext } from '../../../core/context-stacker/page-context';
+import { pageContextProvider } from '../../../core/context-router/context-router.service';
 
 @Component({
   selector: 'app-search-sample',
   templateUrl: './search-sample.component.html',
   styleUrls: ['./search-sample.component.scss'],
+  providers: [pageContextProvider],
 })
 export class SearchSampleComponent implements OnInit {
   // #reion インタフェース
@@ -18,7 +21,11 @@ export class SearchSampleComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private ownService: Id0001UnitService,
-  ) {}
+    private pageContext: PageContext,
+  ) {
+    console.log('context:');
+    console.log(pageContext);
+  }
 
   ngOnInit(): void {
     // console.log('I am SearchSampleComponent.');
