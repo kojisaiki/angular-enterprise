@@ -8,7 +8,6 @@ import { pageContextProvider } from '../../../core/context-router/context-router
   selector: 'app-search-sample',
   templateUrl: './search-sample.component.html',
   styleUrls: ['./search-sample.component.scss'],
-  providers: [pageContextProvider],
 })
 export class SearchSampleComponent implements OnInit {
   // #reion インタフェース
@@ -21,11 +20,7 @@ export class SearchSampleComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private ownService: Id0001UnitService,
-    private pageContext: PageContext,
-  ) {
-    console.log('context:');
-    console.log(pageContext);
-  }
+  ) {}
 
   ngOnInit(): void {
     // console.log('I am SearchSampleComponent.');
@@ -39,6 +34,10 @@ export class SearchSampleComponent implements OnInit {
 
   getList() {
     return this.ownService.getList();
+  }
+
+  getEntityLink(data: any) {
+    return `/${data.id}`;
   }
 
   // #endregion

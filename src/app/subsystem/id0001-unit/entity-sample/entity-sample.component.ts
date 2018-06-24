@@ -8,7 +8,6 @@ import { pageContextProvider } from '../../../core/context-router/context-router
   selector: 'app-entity-sample',
   templateUrl: './entity-sample.component.html',
   styleUrls: ['./entity-sample.component.scss'],
-  providers: [pageContextProvider],
 })
 export class EntitySampleComponent implements OnInit, OnDestroy {
   // #reion インタフェース
@@ -17,13 +16,7 @@ export class EntitySampleComponent implements OnInit, OnDestroy {
 
   // #region コンストラクタ・ライフサイクル
 
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private pageContext: PageContext,
-  ) {
-    console.log('context:');
-    console.log(pageContext);
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.subscriptions.push(
       activatedRoute.paramMap.subscribe(param => {
         this.id = param.get('id');

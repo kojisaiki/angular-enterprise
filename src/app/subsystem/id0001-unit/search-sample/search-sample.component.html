@@ -5,6 +5,6 @@
 <ul>
   <li *ngFor="let data of getList()">
     {{data.id}} : {{data.name}}
-    <a routerLink="{{data.id}}">detail</a>
+    <a routerLink="{{getEntityLink(data)}}">detail</a>
   </li>
 </ul>
