@@ -1,17 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes } from '@angular/router';
 import { RssReaderComponent } from './rss-reader/rss-reader.component';
-
-export const ID0002_ROUTES: Routes = [
-  {
-    path: '',
-    component: RssReaderComponent
-  }
-];
+import { Id0002RssReaderRoutingModule } from './id0002-rss-reader-routing.module';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [RssReaderComponent]
+  imports: [CommonModule, Id0002RssReaderRoutingModule],
+  declarations: [RssReaderComponent],
 })
 export class Id0002RssReaderModule {}
