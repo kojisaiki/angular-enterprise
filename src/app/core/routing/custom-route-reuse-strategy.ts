@@ -12,36 +12,49 @@ export class CustomRouteReuseStrategy implements RouteReuseStrategy {
   constructor(private stacker: ContextStackService) {}
 
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    console.log('RouteReuseStrategy::shouldDetach-----------');
-    console.log(route);
+    console.log(
+      `RouteReuseStrategy::shouldDetach for[${getPath(route.root)}]-----------`,
+    );
+
     console.log('stack height:' + this.stacker.getHeight());
     return true;
   }
 
-  store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
-    console.log('RouteReuseStrategy::store-----------');
-    console.log(route);
-    const newpage = new PageContext(getPath(route.root), handle);
-    this.stacker.stack(newpage);
-    console.log('stored!');
-    console.log(newpage);
+  store(
+    route: ActivatedRouteSnapshot,
+    handle: DetachedRouteHandle | null,
+  ): void {
+    console.log(
+      `RouteReuseStrategy::store for[${getPath(route.root)}]-----------`,
+    );
+
+    if (handle) {
+      const newpage = new PageContext(getPath(route.root), handle);
+      this.stacker.stack(newpage);
+      console.log('stored!');
+      console.log(newpage);
+    } else {
+      console.log('handle is ' + handle);
+    }
   }
 
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
-    console.log('RouteReuseStrategy::shouldAttach-----------');
-    console.log(route);
+    console.log(
+      `RouteReuseStrategy::shouldAttach for[${getPath(route.root)}]-----------`,
+    );
 
     if (this.stacker.contains(getPath(route.root))) {
       console.log('context exists!');
       return true;
     }
     console.log('context not exists...');
-    return true;
+    return false;
   }
 
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle {
-    console.log('RouteReuseStrategy::retrieve-----------');
-    console.log(route);
+    console.log(
+      `RouteReuseStrategy::retrieve for[${getPath(route.root)}]-----------`,
+    );
 
     const page = this.stacker.takeOff(getPath(route.root));
     if (!page) {

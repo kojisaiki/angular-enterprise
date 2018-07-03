@@ -16,6 +16,8 @@ export class SearchSampleComponent implements OnInit {
 
   // #region コンストラクタ・ライフサイクル
 
+  code = '';
+
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
