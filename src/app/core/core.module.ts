@@ -10,7 +10,7 @@ import {
 import { ContextRouterService } from './context-router/context-router.service';
 import { ContextStackService } from './context-stacker/context-stack.service';
 import { PageContext } from './context-stacker/page-context';
-import { MyRouteReuseStrategy } from './routing/my-route-reuse-strategy';
+import { CustomRouteReuseStrategy } from './routing/custom-route-reuse-strategy';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
@@ -30,7 +30,7 @@ import { MyRouteReuseStrategy } from './routing/my-route-reuse-strategy';
     */
     {
       provide: RouteReuseStrategy,
-      useClass: MyRouteReuseStrategy,
+      useClass: CustomRouteReuseStrategy,
     },
   ],
 })

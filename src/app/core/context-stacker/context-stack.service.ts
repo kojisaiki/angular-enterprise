@@ -47,4 +47,13 @@ export class ContextStackService {
   getHeight(): number {
     return this._stack.length;
   }
+
+  contains(contextId: string): boolean {
+    for (let i = this._stack.length - 1; i >= 0; i--) {
+      if (this._stack[i].contextId === contextId) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

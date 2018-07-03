@@ -24,6 +24,9 @@ describe('ContextStackService', () => {
       stacker.stack(newpage);
       expect(stacker.getHeight()).toEqual(1);
 
+      const contains = stacker.contains('/id0001/:id');
+      expect(contains).toBeTruthy();
+
       const getpage = stacker.takeOff('/id0001/:id');
       expect(getpage).not.toBeNull();
       expect(getpage.contextId).toEqual('/id0001/:id');
